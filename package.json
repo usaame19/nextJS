@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-getting-started",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.4.1",
+    "next": "latest",
+    "next-cloudinary": "^4.23.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "tw-elements-react": "^1.0.0-alpha1",
+    "zod": "^3.22.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.2",
+    "@types/react": "18.2.24",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "prisma": "^5.4.0",
+    "tailwindcss": "latest",
+    "typescript": "^5.2.2"
+  }
+}
