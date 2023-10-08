@@ -7,10 +7,10 @@ const DeleteButton = ({ id }) => {
 
     const [transition, startTransition] = useTransition();
 
-
+    const router = useRouter();
 
     const handleDelete = async (id) => {
-        const router = useRouter();
+        
         const baseURL = getBaseUrl()
         const data = await fetch(`${baseURL}/api/posts/${id}`, {
             method: 'DELETE'
