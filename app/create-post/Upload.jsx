@@ -62,7 +62,7 @@ const Upload = () => {
                         ></textarea>
                     </div>
 
-                    <CldUploadWidget uploadPreset="lunuwzor"
+                    <CldUploadWidget uploadPreset="snjuchgw"
                         onUpload={(result, widget) =>
                             // @ts-ignore
                             setImageUrl(result.info.url)}
