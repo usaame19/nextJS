@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation'
+import { getBaseUrl } from '../../util/baseURL';
 
 const Edit = () => {
     const [imageUrl, setImageUrl] = useState(null);
@@ -11,12 +12,13 @@ const Edit = () => {
     const params = useParams()
     const { id } = params; 
     const router = useRouter();
+    const baseURL = getBaseUrl()
     console.log(id)
     useEffect(() => {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/posts/${id}`);
+                    const response = await fetch(`${baseURL}/api/posts/${id}`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch data');
                         
@@ -37,9 +39,10 @@ const Edit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const baseURL = getBaseUrl()
 
         // Update the content in the database
-        const response = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        const response = await fetch(`${baseURL}/api/posts/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ title, content, url: imageUrl })
         });

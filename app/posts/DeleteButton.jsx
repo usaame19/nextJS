@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useTransition } from 'react';
+import { getBaseUrl } from '../util/baseURL';
 const DeleteButton = ({ id }) => {
 
     const [transition, startTransition] = useTransition();
@@ -9,21 +10,11 @@ const DeleteButton = ({ id }) => {
 
 
     const handleDelete = async (id) => {
-        const data = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        const baseURL = getBaseUrl()
+        const data = await fetch(`${baseURL}/api/posts/${id}`, {
             method: 'DELETE'
         });
         startTransition(() => router.refresh());
-    };
-    const handleUpdate = async (id) => {
-
-        const data = await fetch(`http://localhost:3000/api/posts/${id}`, {
-            method: 'PUT'
-        });
-
-
-        startTransition(() => router.refresh());
-
-
     };
 
     return (
@@ -34,7 +25,6 @@ const DeleteButton = ({ id }) => {
                 Delete
             </button>
             <button
-                onClick={() => handleUpdate(id)}
                 type="submit" className=" bg-indigo-700 py-2 px-4 rounded-md text-white">
                 <Link href={`/edit/${id}`}>Update</Link>
             </button>

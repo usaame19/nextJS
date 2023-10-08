@@ -2,8 +2,11 @@ import Link from 'next/link';
 import React, { Suspense } from 'react';
 import DeleteButton from './DeleteButton';
 
+import { getBaseUrl } from '../util/baseURL';
+
 const PostList = async () => {
-    const data = await fetch('http://localhost:3000/api/posts', { cache: "no-store" });
+    const baseURL = getBaseUrl()
+    const data = await fetch(`${baseURL}/api/posts`, { cache: "no-store" });
     const postsData = await data.json();
 
     return (
